@@ -1,0 +1,7 @@
+<div class="d-block w-25" >
+  <label for="catougray">{{title}}</label>
+  <select #select class="form-control" (change)="getdata(select)">
+    <option value = "all">all</option>
+    <option [value]="cat" *ngFor="let cat of product">{{cat}}</option>
+  </select>
+</div>
