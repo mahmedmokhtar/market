@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-between text-align-center align-items-center p-4">
+  <div class="product-img w-25 text-center">
+    <img [src]="product.image" alt="" >
+  </div>
+  <div class="product-info w-75 text-align-center align-items-center">
+    <ul class="list-unstyled">
+      <li class="d-flex "><span>title : </span>{{product.title}}</li>
+      <li class="d-flex "> <span>description:</span>{{product.description}}</li>
+      <li class="d-flex "> <span>category :</span>{{product.category }}</li>
+      <li class="d-flex "> <span>price : </span>{{product.price}}</li>
+      <li class="d-flex "> <span>count : </span>{{product.rating?.count}}</li>
+      <li class="d-flex "> <span>rate : </span>{{product.rating?.rate}}</li>
+
+    </ul>
+  </div>
+  </div>

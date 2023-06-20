@@ -1,0 +1,15 @@
+<div class="card"  >
+  <img [src]="item.image" class="card-img-top w-full" alt="..." routerLink="/detail/{{item.id}}">
+  <div class="card-body" routerLink="/detail/{{item.id}}">
+    <h5 class="card-title" >{{item.title | slice: 0 : 20}}</h5>
+    <p class="card-text">{{item.description | slice:0 : 50}}</p>
+  </div>
+  <div class="d-flex justify-content-between p-2">
+    <a  class="btn btn-danger">{{item.price}} price</a>
+    <div class="d-flex justify-content-between " *ngIf="!addcard" >
+      <input type="number" class="form-control mr-4" [(ngModel)]="amount" min = "1">
+      <input type="button" (click) = "getdate()" class="btn btn-primary" value="add" (click)="addcard = true">
+    </div>
+    <button class="btn btn-primary" *ngIf="addcard" (click)="addcard = false"> ADD TO CARD</button>
+  </div>
+</div>

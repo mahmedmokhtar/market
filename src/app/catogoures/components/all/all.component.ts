@@ -10,7 +10,8 @@ export class AllComponent implements OnInit  {
   products:any = [];
  catougrey :any = [];
  loading:boolean = false;
- datepro :any =[]
+ datepro :any =[];
+
 constructor(private catag:CatogrusService){
 
 }
@@ -50,20 +51,22 @@ getAllCategories(keyword:string){
 
   })
 }
-getcard(product:any){
-  if("card" in localStorage) {
-    this.datepro = JSON.parse(localStorage.getItem("card")!)
-  }else{
-    let access = this.datepro.find((e:any)=> e.id === product.id)
-    if(access) {
-      alert("this card is here")
+getcard(event:any){
+  if("data" in localStorage){
+    this.datepro = JSON.parse(localStorage.getItem("data")!)
+    let exast = this.datepro.find((data:any) => data.data.id == event.data.id)
+    if(exast){
+      alert("this cart is found there catd")
     }else{
-
-      this.datepro.push(product)
-      localStorage.setItem("cart", JSON.stringify(this.datepro))
+      this.datepro.push(event)
+      localStorage.setItem("data" , JSON.stringify(this.datepro))
     }
-  }
 
+  }else{
+
+    this.datepro.push(event)
+    localStorage.setItem("data" , JSON.stringify(this.datepro))
+  }
 
 }
 }

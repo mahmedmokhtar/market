@@ -1,0 +1,12 @@
+.card {
+  margin:  20px 0 ;
+  cursor: pointer;
+
+}
+.card:hover {
+  transform: scale(1.1);
+}
+img {
+  height: 180px;
+  padding: 20px 0;
+}

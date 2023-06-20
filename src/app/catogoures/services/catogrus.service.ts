@@ -18,5 +18,7 @@ export class CatogrusService {
    getAllCategories(keyword:any){
     return this.http.get("https://fakestoreapi.com/products/category/"+ keyword)
    }
-
+   Getsingleproduct(id:any){
+    return this.http.get('https://fakestoreapi.com/products/'+ id)
+   }
 }
