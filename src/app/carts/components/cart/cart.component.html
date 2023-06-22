@@ -41,9 +41,9 @@
             <th></th>
             <th></th>
             <th>Total : {{total}} L.E</th>
-            <th><button class="btn btn-success">Order now</button></th>
+            <th><button class="btn btn-success" (click)="sendcart()">Order now</button></th>
         </tr>
     </tfoot>
   </table>
 </div>
-<div class="alert alert-success" role="alert">well Done</div>
+<div class="alert alert-success" *ngIf="sucess" role="alert">well Done</div>

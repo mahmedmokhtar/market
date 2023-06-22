@@ -7,5 +7,7 @@ import { Injectable } from '@angular/core';
 export class CartService {
 
   constructor(private http : HttpClient) { }
-
+addnewcart(module:any){
+  return this.http.post('https://fakestoreapi.com/carts',module)
+}
 }

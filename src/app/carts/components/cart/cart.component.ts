@@ -10,6 +10,7 @@ export class CartComponent implements OnInit {
   datepro:any[] = [];
   total = 0;
   fintotal:any;
+  sucess:boolean=false;
 constructor(private cartser:CartService){
 
 }
@@ -58,5 +59,19 @@ getalltotal(){
     this.total += Math.ceil(this.datepro[x].data.price * this.datepro[x].quantity)
 
   }
+}
+sendcart(){
+  let products = this.datepro.map((item)=>{
+    return {productId:item.data.id,quantity:item.quantity}
+  })
+  let modul ={
+    userid:5,
+    date : new Date(),
+    products:products
+  }
+  console.log(modul)
+this.cartser.addnewcart(modul).subscribe((res)=>{
+this.sucess= true;
+})
 }
 }
