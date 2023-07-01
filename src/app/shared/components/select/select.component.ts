@@ -10,7 +10,11 @@ export class SelectComponent {
 @Input ()product:any;
 @Output() getselecter = new EventEmitter;
 @Output () getallcat = new EventEmitter
-getdata(select:any){
-this.getselecter.emit(select)
+getdata(){
+this.getselecter.emit()
 }
+senddate(e:any){
+  console.log(e.target.value)
+}
+
 }

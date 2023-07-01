@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CatogrusService } from '../../services/catogrus.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-all',
@@ -11,13 +12,15 @@ export class AllComponent implements OnInit  {
  catougrey :any = [];
  loading:boolean = false;
  datepro :any =[];
+ value :any= "all";
 
-constructor(private catag:CatogrusService){
+constructor(private catag:CatogrusService, private route:ActivatedRoute){
 
 }
 ngOnInit(){
 this.getall()
 this.getcat()
+this.filtercat()
 
 }
 getall(){
@@ -25,7 +28,6 @@ getall(){
   this.catag.getall().subscribe(res=>{
     this.loading = false;
     this.products = res;
-    console.log(res)
   })
 
 }
@@ -37,20 +39,23 @@ this.catougrey = res
 
 })
 }
-filtercat(select:any){
 
-let value = select.value;
- value == "all" ? this.getall():
-this.getAllCategories(value)
-}
-getAllCategories(keyword:string){
-  this.loading = true
-  this.catag.getAllCategories(keyword).subscribe((res)=>{
-    this.loading= false
-    this.products = res
+filtercat(){
 
-  })
+  this.route.queryParamMap.subscribe(param=>{
+    this.value = param.get('catougray')
+   }
+    );
+this.value == "all" ? this.getall():
+this.loading = true
+this.catag.getAllCategories(this.value).subscribe((res)=>{
+  this.loading= false
+  this.products = res
+
+})
 }
+
+
 getcard(event:any){
   if("data" in localStorage){
     this.datepro = JSON.parse(localStorage.getItem("data")!)

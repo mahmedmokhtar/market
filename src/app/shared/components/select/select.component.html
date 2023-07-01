@@ -1,7 +1,7 @@
-<div class="d-block w-25" >
-  <label for="catougray">{{title}}</label>
-  <select #select class="form-control" (change)="getdata(select)">
-    <option value = "all">all</option>
-    <option [value]="cat" *ngFor="let cat of product">{{cat}}</option>
-  </select>
-</div>
+
+<h3>{{title}}</h3>
+<ul class ="list-group" >
+  <li class="list-group-item"><a  routerLink="./" [queryParams]="{catougray:'all'}">all</a></li>
+  <li class ="list-group-item list-group-item-active" *ngFor="let cat of product"><a routerLink="./"
+     [queryParams]="{catougray:cat}" (click)="getdata()">{{cat}}</a></li>
+</ul>

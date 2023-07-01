@@ -4,9 +4,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
 import { SelectComponent } from './components/select/select.component';
 import { LoadingComponent } from './components/loading/loading.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from './components/card/card.component';
 import { AppRoutingModule } from '../app-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -14,8 +15,9 @@ import { AppRoutingModule } from '../app-routing.module';
     SelectComponent,
     LoadingComponent,
     CardComponent,
+
   ],
-  imports: [CommonModule, RouterModule, FormsModule, AppRoutingModule],
-  exports: [HeaderComponent, SelectComponent, LoadingComponent, CardComponent],
+  imports: [CommonModule, RouterModule, FormsModule, AppRoutingModule,ReactiveFormsModule],
+  exports: [HeaderComponent, SelectComponent, LoadingComponent, CardComponent,ReactiveFormsModule],
 })
 export class SharedModule {}

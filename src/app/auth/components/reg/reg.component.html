@@ -1,0 +1,26 @@
+<div class="row mt-4 d-flex justify-content-center">
+  <h2 class="text-primary text-center">REGISTER FORM</h2>
+  <div class="col-md-6 ">
+    <form [formGroup]="reg">
+      <div class="form-group mb-2">
+        <label for="exampleInputuser">User Name</label>
+        <input type="text" class="form-control" id="exampleInputuser"  formControlName="username" placeholder="username">
+      </div>
+      <div class="form-group mb-2">
+        <label for="exampleInputEmail">Email</label>
+        <input type="email" class="form-control" id="exampleInputEmail" formControlName="email" placeholder="your email">
+      </div>
+      <div class="form-group mb-2">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" placeholder="your password">
+      </div>
+      <div class="form-group mb-2">
+        <label for="exampleInputPassword2">confirmPassword</label>
+        <input type="password" class="form-control" id="exampleInputPassword2" formControlName="conpassword" placeholder="confiarm your password">
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-4" [disabled]="reg.invalid || (reg.value.password !== reg.value.conpassword)">Register</button>
+    </form>
+
+  </div>
+</div>
